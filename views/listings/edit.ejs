@@ -1,0 +1,97 @@
+<% layout("layouts/boilerplates") %>
+
+<div class="edit-listing-page">
+
+    <div class="edit-listing-container needs-validation" novalidate >
+
+        <h1>Edit Listing</h1>
+
+        <form 
+            method="post" 
+            action="/listings/<%= listing._id %>?_method=PUT"
+        >
+
+            <!-- Title -->
+            <div class="edit-form-group">
+                <label for="title">Title</label>
+
+                <input 
+                    type="text"
+                    id="title"
+                    name="listing[title]"
+                    value="<%= listing.title %>"
+                    required
+                >
+            </div>
+
+
+            <!-- Description -->
+            <div class="edit-form-group">
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    name="listing[description]"
+                    required
+                ><%= listing.description %></textarea>
+            </div>
+
+
+            <!-- Price + Country -->
+            <div class="edit-form-row">
+
+                <div class="edit-form-group edit-price">
+                    <label for="price">Price</label>
+
+                    <input 
+                        type="number"
+                        id="price"
+                        name="listing[price]"
+                        value="<%= listing.price %>"
+                        required
+                    >
+                </div>
+
+
+                <div class="edit-form-group edit-country">
+                    <label for="country">Country</label>
+
+                    <input 
+                        type="text"
+                        id="country"
+                        name="listing[country]"
+                        value="<%= listing.country %>"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- Location -->
+            <div class="edit-form-group">
+
+                <label for="location">Location</label>
+
+                <input 
+                    type="text"
+                    id="location"
+                    name="listing[location]"
+                    value="<%= listing.location %>"
+                    required
+                />
+
+            </div>
+
+
+            <!-- Button -->
+            <button type="submit" class="update-listing-btn">
+                Update Listing
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="/js/script.js"></script>
