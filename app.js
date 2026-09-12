@@ -71,20 +71,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/demouser', async (req, res) => {
-    const fakeUser = new User({
-        email: 'xyz@gmail.com',
-        username: 'xyz'
-    });
+// app.get('/demouser', async (req, res) => {
+//     const fakeUser = new User({
+//         email: 'xyz@gmail.com',
+//         username: 'xyz'
+//     });
 
-    const regUser = await User.register(fakeUser, 'helooworld');
+//     const regUser = await User.register(fakeUser, 'helooworld');
 
-    res.send(regUser);
-});
+//     res.send(regUser);
+// });
 
-app.use('/listings', listingRoutes);
+// app.use('/listings', listingRoutes);
 
-app.use('/listings', listingRoutes);
 
 app.post('/listings/:id/reviews', wrapAsync(async (req, res) => {
     const { id } = req.params;
